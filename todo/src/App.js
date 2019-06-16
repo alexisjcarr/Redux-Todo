@@ -1,12 +1,46 @@
-import React from 'react';
-import './App.scss';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-     Hello World!
-    </div>
-  );
+import "./App.scss";
+import { addTodo } from "./store/actions";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newTodo: ""
+    };
+  }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <form>
+          <input
+            name="newTodo"
+            placeholder="Add new todo"
+            value={this.state.newTodo}
+            onChange={this.handleChange}
+          />
+        </form>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    todos: state.todos
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(App);
