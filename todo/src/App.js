@@ -30,7 +30,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList />
+      {console.log('for Elan: ',this.props.todos)}
+        <TodoList todos={this.props.todos}/>
         <form onSubmit={this.addTodo}>
           <input
             name="newTodo"
@@ -55,3 +56,4 @@ export default connect(
   mapStateToProps,
   { addTodo }
 )(App);
+

@@ -21,13 +21,7 @@ class Todo extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    todos: state.todos
-  };
-};
-
 export default connect(
-  mapStateToProps,
+  null,
   { toggleTodo }
 )(Todo);

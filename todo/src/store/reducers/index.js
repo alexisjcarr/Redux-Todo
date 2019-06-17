@@ -6,6 +6,11 @@ const initialState = {
       task: "Add first todo",
       id: Date.now(),
       completed: false
+    },
+    { 
+      task: "Add second todo", 
+      id: Date.now(), 
+      completed: false 
     }
   ]
 };
