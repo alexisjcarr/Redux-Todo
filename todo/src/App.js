@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import "./App.scss";
 import { addTodo } from "./store/actions";
+import TodoList from "./containers/TodoList";
 
 class App extends Component {
   constructor(props) {
@@ -18,16 +19,26 @@ class App extends Component {
     });
   };
 
+  addTodo = e => {
+    e.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+    this.setState({
+      newTodo: ""
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <form>
+        <TodoList />
+        <form onSubmit={this.addTodo}>
           <input
             name="newTodo"
             placeholder="Add new todo"
             value={this.state.newTodo}
             onChange={this.handleChange}
           />
+          <button type="submit">submit</button>
         </form>
       </div>
     );

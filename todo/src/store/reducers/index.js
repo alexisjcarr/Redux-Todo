@@ -1,7 +1,13 @@
 import * as actionTypes from "../actions";
 
 const initialState = {
-  todos: []
+  todos: [
+    {
+      task: "Add first todo",
+      id: Date.now(),
+      completed: false
+    }
+  ]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -9,16 +15,26 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.ADD_TODO:
       return {
         ...state,
-        todos: state.todos.concat(action.newTodo)
+        todos: [
+          ...state.todos,
+          { task: action.newTodo, id: Date.now(), completed: false }
+        ]
       };
     case actionTypes.TOGGLE_TODO:
+      const toggleTodo = state.todos.map(todo => {
+        if (todo.id === action.id) {
+          return {
+            ...state,
+            completed: (todo.completed = !todo.completed)
+          };
+        }
+      });
+      return toggleTodo;
+    case actionTypes.DELETE_TODO:
       return {
         ...state,
-        todos: (state.todos[action.id].complete = !state.todos[action.id]
-          .complete)
+        todos: state.todos.filter(todo => todo.id !== action.id)
       };
-    case actionTypes.DELETE_TODO:
-      return {};
     default:
       return state;
   }
