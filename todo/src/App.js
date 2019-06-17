@@ -30,7 +30,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {console.log('for Elan: ',this.props.todos)}
         <TodoList todos={this.props.todos}/>
         <form onSubmit={this.addTodo}>
           <input

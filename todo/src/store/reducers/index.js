@@ -1,18 +1,7 @@
 import * as actionTypes from "../actions";
 
 const initialState = {
-  todos: [
-    {
-      task: "Add first todo",
-      id: Date.now(),
-      completed: false
-    },
-    { 
-      task: "Add second todo", 
-      id: Date.now(), 
-      completed: false 
-    }
-  ]
+  todos: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -26,15 +15,17 @@ const rootReducer = (state = initialState, action) => {
         ]
       };
     case actionTypes.TOGGLE_TODO:
-      const toggleTodo = state.todos.map(todo => {
-        if (todo.id === action.id) {
-          return {
-            ...state,
-            completed: (todo.completed = !todo.completed)
-          };
-        }
-      });
-      return toggleTodo;
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if(todo.id === action.id) {
+            return {
+              ...todo,
+              completed: !todo.completed,
+            }
+          }
+        })
+      }
     case actionTypes.DELETE_TODO:
       return {
         ...state,

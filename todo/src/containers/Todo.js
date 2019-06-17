@@ -11,12 +11,13 @@ class Todo extends Component {
 
   render() {
     return (
-      <div
+      <h3
         className={`todo${this.props.todo.completed ? " completed" : ""}`}
-        onClick={this.toggleTodo(this.props.todo.id)}
+        onClick={() => this.toggleTodo(this.props.todo.id)}
       >
+          {console.log(this.props.todo)}
         {this.props.todo.task}
-      </div>
+      </h3>
     );
   }
 }
