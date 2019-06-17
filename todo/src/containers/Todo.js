@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { toggleTodo } from "../store/actions";
+import { toggleTodo, deleteTodo } from "../store/actions";
 import "./Todo.scss";
 
 class Todo extends Component {
@@ -11,18 +11,18 @@ class Todo extends Component {
 
   render() {
     return (
-      <h3
+      <div
         className={`todo${this.props.todo.completed ? " completed" : ""}`}
         onClick={() => this.toggleTodo(this.props.todo.id)}
       >
-          {console.log(this.props.todo)}
-        {this.props.todo.task}
-      </h3>
+        {this.props.todo.task}{" "}
+        <button onClick={() => this.props.deleteTodo(this.props.todo.id)}>delete</button>
+      </div>
     );
   }
 }
 
 export default connect(
   null,
-  { toggleTodo }
+  { toggleTodo, deleteTodo }
 )(Todo);

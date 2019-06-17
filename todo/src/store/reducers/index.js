@@ -18,14 +18,15 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map(todo => {
-          if(todo.id === action.id) {
+          if (todo.id === action.id) {
             return {
               ...todo,
-              completed: !todo.completed,
+              completed: !todo.completed
             }
           }
+          return todo;
         })
-      }
+      };
     case actionTypes.DELETE_TODO:
       return {
         ...state,
