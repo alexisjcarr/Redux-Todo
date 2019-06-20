@@ -24,13 +24,13 @@ class App extends Component {
     this.props.addTodo(this.state.newTodo);
     this.setState({
       newTodo: ""
-    })
-  }
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        <TodoList todos={this.props.todos}/>
+        <TodoList todos={this.props.todos} />
         <form onSubmit={this.addTodo}>
           <input
             name="newTodo"
@@ -55,4 +55,3 @@ export default connect(
   mapStateToProps,
   { addTodo }
 )(App);
-
