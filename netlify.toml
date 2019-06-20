@@ -1,8 +1,8 @@
 [build]
  command = "yarn build"
  functions = "functions"
- publish = "SUBROOTFILE/build"
- base = "SUBROOTFILE"
+ publish = "todo/build"
+ base = "todo"
 
 
  [[redirects]]
