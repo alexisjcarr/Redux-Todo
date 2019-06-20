@@ -1,6 +1,6 @@
 # TITLE
 
-\*\*[NETLIFY DEPLOYMENT](https://5d0c1aeb7326da0007ae0e4c--nifty-allen-1d6e8d.netlify.com/)
+[NETLIFY DEPLOYMENT](https://5d0c1aeb7326da0007ae0e4c--nifty-allen-1d6e8d.netlify.com/)
 
 ## Topics Covered
 
